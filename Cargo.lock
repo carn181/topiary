@@ -2746,6 +2746,7 @@ version = "0.0.1"
 dependencies = [
  "clap",
  "env_logger",
+ "itertools 0.11.0",
  "log",
  "mdbook",
  "pulldown-cmark 0.13.0",
