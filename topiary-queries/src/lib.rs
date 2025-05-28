@@ -1,3 +1,9 @@
+/// Returns the Topiary-compatible query file for Faust.
+#[cfg(feature = "faust")]
+pub fn bash() -> &'static str {
+    include_str!("../queries/faust.scm")
+}
+
 /// Returns the Topiary-compatible query file for Bash.
 #[cfg(feature = "bash")]
 pub fn bash() -> &'static str {
