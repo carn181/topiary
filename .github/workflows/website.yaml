@@ -3,7 +3,7 @@ name: Build and deploy website
 on:
   push:
     branches: main
-
+  workflow_dispatch:
 jobs:
   # Build the WASM-based web playground's assets
   # NOTE The playground is currently not under active development, so we
