@@ -41,6 +41,7 @@ default = [ "parallel" ]
 # At the moment, this is only in grammar prefetching
 parallel = [ "dep:rayon" ]
 
+faust = []
 bash = []
 css = []
 json = []
@@ -58,6 +59,7 @@ wit = []
 # This a convenience for the sake of downstream applications which don't
 # wish to cherry-pick grammars (e.g., the playground)
 all = [
+  "faust",
   "bash",
   "css",
   "json",
