@@ -77,6 +77,18 @@ ocamllex() {
   echo -e "${GREEN}Ocamllex: Done${NC}"
 }
 
+faust() {
+  echo -e "${BLUE}Faust: Fetching${NC}"
+  git clone https://github.com/khiner/tree-sitter-faust.git "${WORKDIR}/tree-sitter-faust" &> /dev/null
+  REV="f3b9274514b5f9bf6b0dd4a01c30f9cc15c58bc4"
+  pushd "${WORKDIR}/tree-sitter-faust" &> /dev/null
+    git checkout "$REV" &> /dev/null
+  popd &> /dev/null
+  echo -e "${ORANGE}Faust: Building${NC}"
+  tree-sitter build --wasm "${WORKDIR}/tree-sitter-faust"
+  echo -e "${GREEN}Faust: Done${NC}"
+}
+
 bash() {
   echo -e "${BLUE}Bash: Fetching${NC}"
   git clone https://github.com/tree-sitter/tree-sitter-bash.git "${WORKDIR}/tree-sitter-bash" &> /dev/null
