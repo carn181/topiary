@@ -150,6 +150,6 @@ css() {
 }
 
 
-(trap 'kill 0' SIGINT; json & nickel & ocaml & ocamllex & bash & rust & toml & tree-sitter-query & css & wait)
+(trap 'kill 0' SIGINT; json & nickel & ocaml & ocamllex & faust & bash & rust & toml & tree-sitter-query & css & wait)
 
 echo -e "${GREEN}Done! All grammars have been updated${NC}"
