@@ -1,13 +1,5 @@
 {
   languages = {
-    faust = {
-      extensions = ["dsp", "lib"],
-      grammar.source.git = {
-        git = "https://github.com/khiner/tree-sitter-faust.git",
-        rev = "f3b9274514b5f9bf6b0dd4a01c30f9cc15c58bc4",
-      },
-    },
-
     bash = {
       extensions = ["sh", "bash"],
       grammar = {
