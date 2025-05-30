@@ -12,7 +12,7 @@ use std::{
 };
 
 use language::{Language, LanguageConfiguration};
-use nickel_lang_core::{eval::cache::CacheImpl, program::Program};
+use nickel_lang_core::{error::NullReporter, eval::cache::CacheImpl, program::Program};
 use serde::Deserialize;
 
 #[cfg(not(target_arch = "wasm32"))]
@@ -140,7 +140,7 @@ impl Configuration {
     fn parse_and_merge(sources: &[Source]) -> TopiaryConfigResult<Self> {
         let inputs = sources.iter().map(|s| s.clone().into());
 
-        let mut program = Program::<CacheImpl>::new_from_inputs(inputs, std::io::stderr())?;
+        let mut program = Program::<CacheImpl>::new_from_inputs(inputs, std::io::stderr(), NullReporter {})?;
 
         let term = program.eval_full_for_export()?;
 
@@ -161,6 +161,7 @@ impl Default for Configuration {
                 .as_slice(),
             "builtin",
             std::io::empty(),
+            NullReporter {},
         )
         .expect("Evaluating the builtin configuration should be safe");
         let term = program
